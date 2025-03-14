@@ -9,9 +9,9 @@ const images = [
     description: 'Car on road'
   },
   {
-    url: 'https://images.unsplash.com/photo-1586768035999-0321c3416071?q=80&w=1080',
+    url: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1080',
     filename: 'truck-insurance.jpg',
-    description: 'Truck on highway'
+    description: 'Large truck on highway'
   },
   {
     url: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1080',

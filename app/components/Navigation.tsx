@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -11,40 +12,45 @@ export default function Navigation() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-white dark:bg-gray-900 shadow-sm transition-colors duration-200">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 justify-between items-center">
           <div className="flex">
             <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold text-blue-600">InsureCo</span>
+              <span className="text-xl font-bold text-blue-600 dark:text-blue-400">InsureCo</span>
             </Link>
           </div>
 
-          <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+          <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-8">
             {[
               { name: 'Home', href: '/' },
               { name: 'Car Insurance', href: '/car-insurance' },
               { name: 'Truck Insurance', href: '/truck-insurance' },
               { name: 'Health Insurance', href: '/health-insurance' },
+              { name: 'Contact', href: '/contact' },
             ].map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ${
+                className={`inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 transition-colors duration-200 ${
                   isActive(item.href)
-                    ? 'border-blue-500 text-gray-900'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                    ? 'border-blue-500 text-gray-900 dark:text-white'
+                    : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-100'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
+            <div className="ml-4">
+              <ThemeToggle />
+            </div>
           </div>
 
-          <div className="sm:hidden">
+          <div className="sm:hidden flex items-center space-x-4">
+            <ThemeToggle />
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 dark:hover:bg-gray-800 transition-colors duration-200"
               aria-controls="mobile-menu"
               aria-expanded={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -70,22 +76,26 @@ export default function Navigation() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`sm:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
+      <div 
+        className={`sm:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`} 
+        id="mobile-menu"
+      >
         <div className="space-y-1 pb-3 pt-2">
           {[
             { name: 'Home', href: '/' },
             { name: 'Car Insurance', href: '/car-insurance' },
             { name: 'Truck Insurance', href: '/truck-insurance' },
             { name: 'Health Insurance', href: '/health-insurance' },
+            { name: 'Contact', href: '/contact' },
           ].map((item) => (
             <Link
               key={item.name}
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`block border-l-4 py-2 pl-3 pr-4 text-base font-medium ${
+              className={`block border-l-4 py-2 pl-3 pr-4 text-base font-medium transition-colors duration-200 ${
                 isActive(item.href)
-                  ? 'border-blue-500 bg-blue-50 text-blue-700'
-                  : 'border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700'
+                  ? 'border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-400'
+                  : 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 dark:hover:bg-gray-800 dark:hover:text-gray-200'
               }`}
             >
               {item.name}
