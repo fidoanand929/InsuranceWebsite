@@ -9,7 +9,19 @@ export default function Navigation() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/' && pathname === '/') return true;
+    if (path !== '/' && pathname.startsWith(path)) return true;
+    return false;
+  };
+
+  const navItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Car Insurance', href: '/car-insurance' },
+    { name: 'Truck Insurance', href: '/truck-insurance' },
+    { name: 'Health Insurance', href: '/health-insurance' },
+    { name: 'Contact', href: '/contact' },
+  ];
 
   return (
     <nav className="bg-white dark:bg-gray-900 shadow-sm transition-colors duration-200">
@@ -22,13 +34,7 @@ export default function Navigation() {
           </div>
 
           <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-8">
-            {[
-              { name: 'Home', href: '/' },
-              { name: 'Car Insurance', href: '/car-insurance' },
-              { name: 'Truck Insurance', href: '/truck-insurance' },
-              { name: 'Health Insurance', href: '/health-insurance' },
-              { name: 'Contact', href: '/contact' },
-            ].map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -81,13 +87,7 @@ export default function Navigation() {
         id="mobile-menu"
       >
         <div className="space-y-1 pb-3 pt-2">
-          {[
-            { name: 'Home', href: '/' },
-            { name: 'Car Insurance', href: '/car-insurance' },
-            { name: 'Truck Insurance', href: '/truck-insurance' },
-            { name: 'Health Insurance', href: '/health-insurance' },
-            { name: 'Contact', href: '/contact' },
-          ].map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}

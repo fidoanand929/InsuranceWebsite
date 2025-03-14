@@ -11,10 +11,10 @@ export default function TruckInsurance() {
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-indigo-500 to-indigo-700 bg-clip-text text-transparent">
               Commercial Truck Insurance
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+            <p className="mt-6 text-lg leading-8 text-gray-700 dark:text-gray-200">
               Protect your business with comprehensive truck insurance coverage tailored to your needs.
               From single trucks to entire fleets, we've got you covered.
             </p>
@@ -37,7 +37,9 @@ export default function TruckInsurance() {
       <div className="mx-auto max-w-6xl px-6 pb-24">
         {/* Features Section */}
         <section id="features" className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Truck Insurance?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Why Choose Our Truck Insurance?
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -79,13 +81,15 @@ export default function TruckInsurance() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
               >
-                <div className={`text-4xl mb-4`}>{feature.icon}</div>
-                <h3 className={`text-xl font-semibold mb-2 text-${feature.color}-600`}>
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className={`text-xl font-semibold mb-2 text-${feature.color}-600 dark:text-${feature.color}-400`}>
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -93,7 +97,9 @@ export default function TruckInsurance() {
 
         {/* Plans Section */}
         <section>
-          <h2 className="text-3xl font-bold text-center mb-12">Insurance Plans</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Insurance Plans
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -132,21 +138,25 @@ export default function TruckInsurance() {
             ].map((plan, index) => (
               <div
                 key={index}
-                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
               >
-                <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
-                <p className="text-3xl font-bold mb-4">{plan.price}</p>
-                <ul className="space-y-2">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                  {plan.title}
+                </h3>
+                <p className="text-3xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">
+                  {plan.price}
+                </p>
+                <ul className="space-y-2 mb-6">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
-                      <span className="text-green-500 mr-2">✓</span>
+                      <span className="text-green-500 dark:text-green-400 mr-2">✓</span>
                       <span className="text-gray-600 dark:text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/contact"
-                  className="mt-6 block text-center rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="block text-center rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 transition-all duration-200"
                 >
                   Get Started
                 </Link>

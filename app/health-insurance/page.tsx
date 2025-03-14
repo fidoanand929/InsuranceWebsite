@@ -11,11 +11,11 @@ export default function HealthInsurance() {
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-purple-500 to-pink-600 bg-clip-text text-transparent">
               Health Insurance
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Secure your family's health with comprehensive medical coverage. 
+            <p className="mt-6 text-lg leading-8 text-gray-700 dark:text-gray-200">
+              Secure your family's health with comprehensive medical coverage.
               Get access to the best healthcare facilities and peace of mind.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -37,7 +37,9 @@ export default function HealthInsurance() {
       <div className="mx-auto max-w-6xl px-6 pb-24">
         {/* Features Section */}
         <section id="features" className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Health Insurance?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Why Choose Our Health Insurance?
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -79,13 +81,15 @@ export default function HealthInsurance() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
               >
-                <div className={`text-4xl mb-4`}>{feature.icon}</div>
-                <h3 className={`text-xl font-semibold mb-2 text-${feature.color}-600`}>
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className={`text-xl font-semibold mb-2 text-${feature.color}-600 dark:text-${feature.color}-400`}>
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -93,7 +97,9 @@ export default function HealthInsurance() {
 
         {/* Plans Section */}
         <section>
-          <h2 className="text-3xl font-bold text-center mb-12">Insurance Plans</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Insurance Plans
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -132,21 +138,25 @@ export default function HealthInsurance() {
             ].map((plan, index) => (
               <div
                 key={index}
-                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
               >
-                <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
-                <p className="text-3xl font-bold mb-4">{plan.price}</p>
-                <ul className="space-y-2">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                  {plan.title}
+                </h3>
+                <p className="text-3xl font-bold mb-4 text-purple-600 dark:text-purple-400">
+                  {plan.price}
+                </p>
+                <ul className="space-y-2 mb-6">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
-                      <span className="text-green-500 mr-2">✓</span>
+                      <span className="text-green-500 dark:text-green-400 mr-2">✓</span>
                       <span className="text-gray-600 dark:text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/contact"
-                  className="mt-6 block text-center rounded-md bg-purple-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+                  className="block text-center rounded-md bg-purple-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 transition-all duration-200"
                 >
                   Get Started
                 </Link>

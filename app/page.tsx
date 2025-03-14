@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -28,19 +29,22 @@ export default function Home() {
               title: 'Car Insurance',
               description: 'Comprehensive coverage for your vehicle.',
               href: '/car-insurance',
-              gradient: 'from-blue-500 to-blue-700'
+              gradient: 'from-blue-500 to-blue-700',
+              image: '/images/car-insurance.jpg'
             },
             {
               title: 'Truck Insurance',
               description: 'Specialized protection for commercial vehicles.',
               href: '/truck-insurance',
-              gradient: 'from-indigo-500 to-indigo-700'
+              gradient: 'from-indigo-500 to-indigo-700',
+              image: '/images/truck-insurance.jpg'
             },
             {
               title: 'Health Insurance',
               description: 'Quality healthcare coverage for you and your family.',
               href: '/health-insurance',
-              gradient: 'from-purple-500 to-purple-700'
+              gradient: 'from-purple-500 to-purple-700',
+              image: '/images/health-insurance.jpg'
             }
           ].map((insurance, index) => (
             <Link
@@ -48,16 +52,26 @@ export default function Home() {
               href={insurance.href}
               className="block group"
             >
-              <div className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-200">
-                <h2 className={`text-2xl font-bold mb-4 bg-gradient-to-r ${insurance.gradient} bg-clip-text text-transparent`}>
-                  {insurance.title}
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {insurance.description}
-                </p>
-                <span className="text-blue-600 dark:text-blue-400 group-hover:text-blue-500 transition-colors duration-200">
-                  Learn more →
-                </span>
+              <div className="overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-200">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={insurance.image}
+                    alt={insurance.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <h2 className={`text-2xl font-bold mb-4 bg-gradient-to-r ${insurance.gradient} bg-clip-text text-transparent`}>
+                    {insurance.title}
+                  </h2>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {insurance.description}
+                  </p>
+                  <span className="text-blue-600 dark:text-blue-400 group-hover:text-blue-500 transition-colors duration-200">
+                    Learn more →
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
