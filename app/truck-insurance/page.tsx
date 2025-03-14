@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function TruckInsurance() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-6xl">
@@ -34,7 +34,7 @@ export default function TruckInsurance() {
       </div>
 
       {/* Content Sections */}
-      <div className="mx-auto max-w-6xl px-6 pb-24">
+      <div className="mx-auto max-w-6xl px-6 pb-24 flex-grow">
         {/* Features Section */}
         <section id="features" className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
@@ -165,6 +165,24 @@ export default function TruckInsurance() {
           </div>
         </section>
       </div>
+
+      {/* Footer */}
+      <footer className="py-6 border-t border-gray-200 dark:border-gray-700">
+        <div className="flex justify-center space-x-8">
+          <Link 
+            href="/disclaimer" 
+            className="text-base font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors underline"
+          >
+            Disclaimer
+          </Link>
+          <Link 
+            href="/privacy-policy" 
+            className="text-base font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors underline"
+          >
+            Privacy
+          </Link>
+        </div>
+      </footer>
     </div>
   );
 } 
