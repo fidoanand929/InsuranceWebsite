@@ -9,19 +9,26 @@ export default function HealthInsurance() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
-        <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-          <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-blue-400 to-indigo-600 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
-        </div>
-
-        <div className="mx-auto max-w-6xl py-12 sm:py-16">
-          <Link href="/" className="text-blue-600 hover:text-blue-700 mb-8 inline-block">← Back to Home</Link>
+        <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               Health Insurance
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-              Comprehensive healthcare coverage for you and your family, ensuring peace of mind and quality medical care.
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+              Secure your family's health with comprehensive medical coverage. 
+              Get access to the best healthcare facilities and peace of mind.
             </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link
+                href="/contact"
+                className="rounded-md bg-purple-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+              >
+                Get a Quote
+              </Link>
+              <Link href="#features" className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
+                Learn more <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -29,44 +36,56 @@ export default function HealthInsurance() {
       {/* Content Sections */}
       <div className="mx-auto max-w-6xl px-6 pb-24">
         {/* Features Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">Why Choose Our Health Insurance?</h2>
+        <section id="features" className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Health Insurance?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 title: 'Comprehensive Coverage',
-                description: 'Wide range of medical treatments and procedures covered',
-                color: 'blue',
+                description: 'Wide range of medical treatments, surgeries, and hospitalization coverage.',
+                icon: '🏥',
+                color: 'purple'
               },
               {
-                title: 'Cashless Hospitalization',
-                description: 'Network of 5000+ hospitals for hassle-free treatment',
-                color: 'indigo',
+                title: 'Cashless Claims',
+                description: 'Get treatment at network hospitals without paying upfront.',
+                icon: '💳',
+                color: 'pink'
+              },
+              {
+                title: '24/7 Support',
+                description: 'Round-the-clock medical assistance and claims support.',
+                icon: '🕒',
+                color: 'blue'
               },
               {
                 title: 'Family Coverage',
-                description: 'Protection for your entire family under one policy',
-                color: 'purple',
-              },
-              {
-                title: 'Preventive Care',
-                description: 'Regular health check-ups and wellness programs',
-                color: 'blue',
-              },
-              {
-                title: 'Quick Claims',
-                description: 'Fast and efficient claims processing',
-                color: 'indigo',
+                description: 'Protect your entire family under a single policy.',
+                icon: '👨‍👩‍👧‍👦',
+                color: 'green'
               },
               {
                 title: 'No Claim Bonus',
-                description: 'Rewards for claim-free years',
-                color: 'purple',
+                description: 'Get rewarded with increased coverage for claim-free years.',
+                icon: '🎁',
+                color: 'yellow'
               },
+              {
+                title: 'Preventive Care',
+                description: 'Coverage for regular health check-ups and vaccinations.',
+                icon: '🩺',
+                color: 'indigo'
+              }
             ].map((feature, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                <h3 className={`text-xl font-semibold mb-3 text-${feature.color}-600`}>{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+              <div
+                key={index}
+                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className={`text-4xl mb-4`}>{feature.icon}</div>
+                <h3 className={`text-xl font-semibold mb-2 text-${feature.color}-600`}>
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -74,61 +93,65 @@ export default function HealthInsurance() {
 
         {/* Plans Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">Coverage Plans</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-2 border-blue-100">
-              <h3 className="text-2xl font-bold mb-4 text-blue-600">Essential Care</h3>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Basic hospitalization coverage
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Emergency medical services
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Annual health check-up
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-2 border-blue-200">
-              <h3 className="text-2xl font-bold mb-4 text-blue-700">Premium Care</h3>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  All Essential Care features
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  International coverage
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Maternity coverage
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Wellness programs
-                </li>
-              </ul>
-            </div>
+          <h2 className="text-3xl font-bold text-center mb-12">Insurance Plans</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Basic Plan',
+                price: '$X',
+                features: [
+                  'Individual coverage',
+                  'Basic hospitalization',
+                  'Emergency care',
+                  'Ambulance services'
+                ]
+              },
+              {
+                title: 'Family Plan',
+                price: '$XX',
+                features: [
+                  'Coverage for 4 family members',
+                  'Comprehensive hospitalization',
+                  'Maternity benefits',
+                  'Preventive care',
+                  'Specialist consultations'
+                ]
+              },
+              {
+                title: 'Premium Plan',
+                price: '$XXX',
+                features: [
+                  'Coverage for 6 family members',
+                  'International treatment',
+                  'Critical illness coverage',
+                  'Alternative treatments',
+                  'Regular health check-ups',
+                  'Personal health concierge'
+                ]
+              }
+            ].map((plan, index) => (
+              <div
+                key={index}
+                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
+                <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
+                <p className="text-3xl font-bold mb-4">{plan.price}</p>
+                <ul className="space-y-2">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center">
+                      <span className="text-green-500 mr-2">✓</span>
+                      <span className="text-gray-600 dark:text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className="mt-6 block text-center rounded-md bg-purple-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+                >
+                  Get Started
+                </Link>
+              </div>
+            ))}
           </div>
         </section>
       </div>
