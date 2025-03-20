@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" class="dark:text-white text-gray-900">
+    <title>Truck Doodle</title>
+    <style>
+        g { stroke: currentColor; }
+        @media (prefers-color-scheme: dark) {
+            g { stroke: white; }
+        }
+    </style>
+    <g stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round">
+        <!-- Truck Cabin -->
+        <path d="M200,300 L200,200 L300,200 L350,300 Z" />
+        <!-- Truck Body -->
+        <path d="M350,300 L600,300 L600,200 L350,200 Z" />
+        <!-- Wheels -->
+        <circle cx="250" cy="350" r="30" />
+        <circle cx="450" cy="350" r="30" />
+        <circle cx="550" cy="350" r="30" />
+        <!-- Windows -->
+        <path d="M220,250 L280,250" />
+        <!-- Headlight -->
+        <circle cx="220" cy="280" r="10" />
+        <!-- Grill -->
+        <path d="M200,260 L200,290" />
+        <path d="M210,260 L210,290" />
+        <path d="M220,260 L220,290" />
+        <!-- Decorative Lines -->
+        <path d="M400,220 L550,220" />
+        <path d="M400,260 L550,260" />
+        <!-- Door Handle -->
+        <path d="M260,270 L280,270" />
+    </g>
+</svg> 

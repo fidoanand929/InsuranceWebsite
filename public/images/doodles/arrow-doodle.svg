@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="200px" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg" class="dark:text-white text-gray-900">
+    <title>Arrow Doodle</title>
+    <style>
+        g { stroke: currentColor; }
+        @media (prefers-color-scheme: dark) {
+            g { stroke: white; }
+        }
+    </style>
+    <g stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round">
+        <!-- Wavy Arrow Line -->
+        <path d="M50,100 C100,80 150,120 200,100 C250,80 300,120 350,100" />
+        <!-- Arrow Head -->
+        <path d="M350,100 L330,80 M350,100 L330,120" />
+        <!-- Decorative Elements -->
+        <path d="M100,60 L120,80 L100,100" />
+        <path d="M200,60 L220,80 L200,100" />
+        <path d="M300,60 L320,80 L300,100" />
+    </g>
+</svg> 

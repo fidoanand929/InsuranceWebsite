@@ -1,170 +1,184 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import '@fontsource/poppins';
+import '@fontsource/inter';
 
 export default function CarInsurance() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Hero Section */}
-      <div className="relative isolate px-6 pt-14 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 font-['Inter']">
+      {/* Hero Section with Doodle */}
+      <div className="max-w-7xl mx-auto">
+        <motion.div 
+          className="text-center relative"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="relative h-64 w-full mb-8">
+            <Image
+              src="/images/doodles/car-doodle.svg"
+              alt="Car Insurance Doodle"
+              fill
+              className="object-contain dark:filter dark:brightness-200 transform hover:scale-105 transition-transform duration-300"
+              priority
+            />
+          </div>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl font-['Poppins'] drop-shadow-sm">
+            Car Insurance
+            <motion.span 
+              className="block text-indigo-600 dark:text-indigo-400 mt-2"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              That Makes You Smile
+            </motion.span>
+          </h1>
+          <motion.p 
+            className="mt-3 max-w-md mx-auto text-base text-gray-700 dark:text-gray-200 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            Protection for your vehicle with a touch of fun. Get covered today!
+          </motion.p>
+        </motion.div>
+
+        {/* Features with Doodles */}
+        <div className="mt-24">
+          <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature, index) => (
+              <div 
+                key={index} 
+                className="relative group"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="relative h-48 w-full mb-4 overflow-hidden">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="object-contain dark:filter dark:brightness-200 transform group-hover:scale-110 transition-all duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white font-['Poppins']">{feature.title}</h3>
+                <p className="mt-2 text-gray-700 dark:text-gray-200">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Plans with Doodle Decorations */}
+        <div className="mt-24">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
-              Car Insurance
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-700 dark:text-gray-200">
-              Comprehensive coverage for your vehicle with 24/7 roadside assistance.
-            </p>
+            <motion.h2 
+              className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl font-['Poppins'] drop-shadow-sm"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              Choose Your Perfect Plan
+            </motion.h2>
+            <div className="relative h-32 w-full my-8">
+              <Image
+                src="/images/doodles/arrow-doodle.svg"
+                alt="Decorative Arrow"
+                fill
+                className="object-contain dark:filter dark:brightness-200"
+              />
+            </div>
+          </div>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {plans.map((plan, index) => (
+              <motion.div
+                key={index}
+                className="relative bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg p-8 transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border border-gray-100 dark:border-gray-700"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+              >
+                <div className="absolute -top-4 -right-4 h-16 w-16">
+                  <Image
+                    src="/images/doodles/star-doodle.svg"
+                    alt="Star Decoration"
+                    fill
+                    className="object-contain dark:filter dark:brightness-200"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white font-['Poppins']">{plan.name}</h3>
+                <p className="mt-4 text-gray-700 dark:text-gray-200">{plan.description}</p>
+                <div className="mt-6">
+                  <span className="text-4xl font-extrabold text-gray-900 dark:text-white">${plan.price}</span>
+                  <span className="text-base font-medium text-gray-500 dark:text-gray-400">/month</span>
+                </div>
+                <ul className="mt-6 space-y-4">
+                  {plan.features.map((feature, featureIndex) => (
+                    <motion.li 
+                      key={featureIndex} 
+                      className="flex items-center"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: featureIndex * 0.1 }}
+                    >
+                      <div className="relative h-6 w-6 mr-2">
+                        <Image
+                          src="/images/doodles/checkmark-doodle.svg"
+                          alt="Checkmark"
+                          fill
+                          className="object-contain dark:filter dark:brightness-200"
+                        />
+                      </div>
+                      <span className="text-gray-700 dark:text-gray-200">{feature}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+                <motion.button 
+                  className="mt-8 w-full bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg py-3 px-4 hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Get Started
+                </motion.button>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Content Sections */}
-      <div className="mx-auto max-w-6xl px-6 pb-24 flex-grow">
-        {/* Features Section */}
-        <section id="features" className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            Why Choose Our Car Insurance?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Comprehensive Coverage',
-                description: 'Protection for your vehicle, third-party liability, and personal accident coverage.',
-                icon: '🛡️',
-                color: 'blue'
-              },
-              {
-                title: '24/7 Roadside Assistance',
-                description: 'Round-the-clock emergency support whenever you need it.',
-                icon: '🚗',
-                color: 'green'
-              },
-              {
-                title: 'Quick Claims Process',
-                description: 'Hassle-free and fast claims settlement process.',
-                icon: '⚡',
-                color: 'purple'
-              },
-              {
-                title: 'No Claim Bonus',
-                description: 'Rewards for claim-free years with increased benefits.',
-                icon: '💰',
-                color: 'indigo'
-              },
-              {
-                title: 'Multiple Vehicle Discount',
-                description: 'Special rates when you insure multiple vehicles.',
-                icon: '🎁',
-                color: 'pink'
-              },
-              {
-                title: 'Flexible Plans',
-                description: 'Customizable coverage options to suit your needs.',
-                icon: '📋',
-                color: 'yellow'
-              }
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className={`text-xl font-semibold mb-2 text-${feature.color}-600 dark:text-${feature.color}-400`}>
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Plans Section */}
-        <section>
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            Insurance Plans
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Basic Coverage',
-                price: '$X',
-                features: [
-                  'Third-party liability',
-                  'Personal accident cover',
-                  'Basic roadside assistance',
-                  '24/7 customer support'
-                ]
-              },
-              {
-                title: 'Premium Coverage',
-                price: '$XX',
-                features: [
-                  'All Basic Coverage features',
-                  'Comprehensive vehicle protection',
-                  'Zero depreciation cover',
-                  'Engine protection',
-                  'Premium roadside assistance'
-                ]
-              },
-              {
-                title: 'Elite Coverage',
-                price: '$XXX',
-                features: [
-                  'All Premium Coverage features',
-                  'Return to invoice cover',
-                  'No claim bonus protection',
-                  'Key replacement cover',
-                  'Personal belongings coverage',
-                  'Consumables cover'
-                ]
-              }
-            ].map((plan, index) => (
-              <div
-                key={index}
-                className="relative p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
-              >
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
-                  {plan.title}
-                </h3>
-                <p className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-400">
-                  {plan.price}
-                </p>
-                <ul className="space-y-2 mb-6">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <span className="text-green-500 dark:text-green-400 mr-2">✓</span>
-                      <span className="text-gray-600 dark:text-gray-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className="block text-center rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition-all duration-200"
-                >
-                  Get Started
-                </Link>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-
       {/* Footer */}
-      <footer className="py-6 border-t border-gray-200 dark:border-gray-700">
+      <footer className="mt-24 py-6 border-t border-gray-200 dark:border-gray-700">
         <div className="flex justify-center space-x-8">
           <Link 
             href="/disclaimer" 
-            className="text-base font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors underline"
+            className="text-base font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors underline hover:no-underline"
           >
             Disclaimer
           </Link>
           <Link 
             href="/privacy-policy" 
-            className="text-base font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors underline"
+            className="text-base font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors underline hover:no-underline"
           >
             Privacy
           </Link>
@@ -172,4 +186,58 @@ export default function CarInsurance() {
       </footer>
     </div>
   );
-} 
+}
+
+const features = [
+  {
+    title: "Comprehensive Coverage",
+    description: "Full protection for your vehicle against accidents, theft, and natural disasters.",
+    image: "/images/doodles/shield-doodle.svg"
+  },
+  {
+    title: "24/7 Roadside Assistance",
+    description: "Help is just a call away, anytime and anywhere you need it.",
+    image: "/images/doodles/wrench-doodle.svg"
+  },
+  {
+    title: "Quick Claims Process",
+    description: "Hassle-free claims with minimal paperwork and fast processing.",
+    image: "/images/doodles/document-doodle.svg"
+  }
+];
+
+const plans = [
+  {
+    name: "Basic",
+    description: "Perfect for new drivers",
+    price: 49,
+    features: [
+      "Third-party liability",
+      "Personal accident cover",
+      "24/7 roadside assistance",
+      "Basic towing service"
+    ]
+  },
+  {
+    name: "Premium",
+    description: "Most popular choice",
+    price: 89,
+    features: [
+      "Everything in Basic",
+      "Comprehensive coverage",
+      "Zero depreciation",
+      "Engine protection"
+    ]
+  },
+  {
+    name: "Ultimate",
+    description: "Complete peace of mind",
+    price: 149,
+    features: [
+      "Everything in Premium",
+      "Return to invoice cover",
+      "Consumables cover",
+      "Key replacement"
+    ]
+  }
+]; 
