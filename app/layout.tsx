@@ -4,10 +4,12 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { ThemeProvider } from './components/theme-provider';
 import Navigation from './components/Navigation';
 import type { ReactNode } from 'react';
+import { Toaster } from "sonner";
+import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Insurance Solutions',
   description: 'Your trusted insurance partner',
 };
@@ -48,6 +50,7 @@ export default function RootLayout({
             <main className="flex-grow">
               {children}
             </main>
+            <Toaster richColors position="top-center" />
           </ThemeProvider>
         </body>
       </html>

@@ -1,29 +1,34 @@
 'use client';
 
-import { SignIn } from '@clerk/nextjs';
+import { useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { SignIn } from "@clerk/nextjs";
+import { motion } from 'framer-motion';
 
 export default function SignInPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirectTo');
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
-          <h2 className="mt-6 text-3xl font-extrabold text-gray-900 dark:text-white">
-            Sign in to your account
-          </h2>
-        </div>
-        <SignIn 
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full max-w-md"
+      >
+        <SignIn
+          afterSignInUrl={redirectTo || '/'}
           appearance={{
             elements: {
-              formButtonPrimary: 'bg-blue-600 hover:bg-blue-700 text-white',
-              card: 'dark:bg-gray-800',
-              headerTitle: 'dark:text-white',
-              socialButtonsBlockButton: 'dark:bg-gray-700 dark:text-white dark:border-gray-600',
-              formFieldInput: 'dark:bg-gray-700 dark:text-white dark:border-gray-600',
-              footerActionLink: 'text-blue-600 hover:text-blue-700 dark:text-blue-400',
+              formButtonPrimary: 
+                "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-sm normal-case",
+              footerActionLink: "text-blue-600 hover:text-blue-700",
             },
           }}
         />
-      </div>
+      </motion.div>
     </div>
   );
 } 
