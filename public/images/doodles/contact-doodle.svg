@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path, circle, rect, line, polygon {
+      stroke: #374151;
+    }
+    @media (prefers-color-scheme: dark) {
+      path, circle, rect, line, polygon {
+        stroke: #e5e7eb;
+      }
+    }
+  </style>
+  
+  <!-- Envelope -->
+  <rect x="100" y="100" width="200" height="140" rx="10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Envelope Flap -->
+  <path d="M100 120 L200 180 L300 120" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Envelope Lines -->
+  <path d="M100 120 L200 200 L300 120" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Message -->
+  <rect x="120" y="60" width="120" height="90" rx="5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-5 120 60)" />
+  
+  <!-- Message Lines -->
+  <line x1="130" y1="75" x2="220" y2="65" stroke-width="2" stroke-linecap="round" transform="rotate(-5 130 75)" />
+  <line x1="130" y1="95" x2="220" y2="85" stroke-width="2" stroke-linecap="round" transform="rotate(-5 130 95)" />
+  <line x1="130" y1="115" x2="190" y2="110" stroke-width="2" stroke-linecap="round" transform="rotate(-5 130 115)" />
+  
+  <!-- Speech Bubbles -->
+  <path d="M280 70 Q300 70, 300 90 L300 110 Q300 130, 280 130 L260 130 L250 150 L250 130 L240 130 Q220 130, 220 110 L220 90 Q220 70, 240 70 Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <circle cx="240" cy="100" r="4" stroke-width="2" stroke-linecap="round" />
+  <circle cx="260" cy="100" r="4" stroke-width="2" stroke-linecap="round" />
+  <circle cx="280" cy="100" r="4" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Person Icon -->
+  <circle cx="70" cy="80" r="20" stroke-width="3" stroke-linecap="round" />
+  <path d="M70 110 L70 160" stroke-width="3" stroke-linecap="round" />
+  <path d="M40 130 L70 110 L100 130" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M70 160 L50 200" stroke-width="3" stroke-linecap="round" />
+  <path d="M70 160 L90 200" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Phone Icon -->
+  <rect x="320" y="190" width="30" height="50" rx="5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="330" y1="200" x2="340" y2="200" stroke-width="2" stroke-linecap="round" />
+  <circle cx="335" cy="225" r="10" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- @symbol -->
+  <circle cx="335" cy="70" r="15" stroke-width="3" stroke-linecap="round" />
+  <path d="M340 60 Q350 60, 350 70 Q350 80, 340 80 L335 80 Q325 80, 325 70 Q325 60, 335 60 L335 90" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+</svg> 

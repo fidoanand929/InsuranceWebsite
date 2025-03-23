@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" class="dark:text-white text-gray-900">
+    <title>Health Doodle</title>
+    <style>
+        g { stroke: currentColor; }
+        @media (prefers-color-scheme: dark) {
+            g { stroke: white; }
+        }
+    </style>
+    <g stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round">
+        <!-- Heart Shape -->
+        <path d="M400,350 C300,250 200,300 200,400 C200,500 400,500 400,400 C400,500 600,500 600,400 C600,300 500,250 400,350 Z" />
+        <!-- Cross Symbol -->
+        <path d="M380,150 L420,150 L420,110 L380,110 Z" />
+        <path d="M400,90 L400,170" />
+        <path d="M360,130 L440,130" />
+        <!-- Pulse Line -->
+        <path d="M200,250 C250,250 270,250 300,250 L320,200 L340,300 L360,200 L380,300 L400,250 C450,250 500,250 600,250" />
+        <!-- Stethoscope -->
+        <path d="M500,400 C550,400 550,350 500,350 C450,350 450,400 500,400" />
+        <path d="M500,400 L500,450" />
+        <!-- Decorative Elements -->
+        <circle cx="300" cy="150" r="20" />
+        <circle cx="500" cy="150" r="20" />
+    </g>
+</svg> 

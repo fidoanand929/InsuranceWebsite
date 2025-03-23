@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" class="dark:text-white text-gray-900">
+    <title>Star Doodle</title>
+    <style>
+        g { stroke: currentColor; }
+        @media (prefers-color-scheme: dark) {
+            g { stroke: white; }
+        }
+    </style>
+    <g stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round">
+        <!-- Star -->
+        <path d="M100,20 L120,60 L160,70 L130,100 L140,140 L100,120 L60,140 L70,100 L40,70 L80,60 Z" />
+        <!-- Decorative Lines -->
+        <path d="M100,0 L100,10" />
+        <path d="M180,100 L190,100" />
+        <path d="M10,100 L20,100" />
+        <path d="M160,40 L170,30" />
+        <path d="M30,170 L40,160" />
+    </g>
+</svg> 

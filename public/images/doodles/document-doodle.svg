@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="400px" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" class="dark:text-white text-gray-900">
+    <title>Document Doodle</title>
+    <style>
+        g { stroke: currentColor; }
+        @media (prefers-color-scheme: dark) {
+            g { stroke: white; }
+        }
+    </style>
+    <g stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round">
+        <!-- Document Body -->
+        <path d="M100,50 L250,50 L300,100 L300,350 L100,350 Z" />
+        <!-- Folded Corner -->
+        <path d="M250,50 L250,100 L300,100" />
+        <!-- Lines -->
+        <path d="M130,150 L270,150" />
+        <path d="M130,200 L270,200" />
+        <path d="M130,250 L270,250" />
+        <path d="M130,300 L220,300" />
+        <!-- Decorative Elements -->
+        <path d="M150,80 L220,80" /> <!-- Title -->
+        <!-- Checkmark -->
+        <path d="M130,180 L150,200 L180,160" />
+    </g>
+</svg> 

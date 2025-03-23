@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path, circle, rect, line, polygon {
+      stroke: #374151;
+    }
+    @media (prefers-color-scheme: dark) {
+      path, circle, rect, line, polygon {
+        stroke: #e5e7eb;
+      }
+    }
+  </style>
+  
+  <!-- Truck Cab -->
+  <path d="M60 180 L120 120 L180 120 L180 220 L60 220 L60 180 Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Truck Cargo -->
+  <rect x="180" y="140" width="160" height="80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Windows -->
+  <path d="M120 120 L140 100 L160 100 L180 120" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="160" y1="100" x2="160" y2="120" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Wheels -->
+  <circle cx="100" cy="220" r="20" stroke-width="3" stroke-linecap="round" />
+  <circle cx="100" cy="220" r="10" stroke-width="3" stroke-linecap="round" />
+  <circle cx="200" cy="220" r="20" stroke-width="3" stroke-linecap="round" />
+  <circle cx="200" cy="220" r="10" stroke-width="3" stroke-linecap="round" />
+  <circle cx="300" cy="220" r="20" stroke-width="3" stroke-linecap="round" />
+  <circle cx="300" cy="220" r="10" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Door -->
+  <line x1="140" y1="120" x2="140" y2="220" stroke-width="3" stroke-linecap="round" />
+  <circle cx="130" cy="170" r="4" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Truck Bed Lines -->
+  <line x1="210" y1="140" x2="210" y2="220" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 4" />
+  <line x1="250" y1="140" x2="250" y2="220" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 4" />
+  <line x1="290" y1="140" x2="290" y2="220" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 4" />
+  
+  <!-- Head Lights -->
+  <path d="M60 180 L50 180 L50 200 L60 200" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Exhaust Pipe -->
+  <path d="M60 190 L40 190 L40 160" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Exhaust Smoke -->
+  <path d="M40 160 Q35 150, 30 160 Q25 170, 30 180 Q35 190, 40 180" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2" />
+  <path d="M30 150 Q25 140, 20 150 Q15 160, 20 170 Q25 180, 30 170" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 2" />
+  
+  <!-- License Plate -->
+  <rect x="90" y="200" width="60" height="15" rx="2" stroke-width="3" stroke-linecap="round" />
+  <text x="120" y="212" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="currentColor">
+    TR-123
+  </text>
+  
+  <!-- Business Icon -->
+  <rect x="210" y="170" width="20" height="20" rx="2" stroke-width="2" stroke-linecap="round" />
+  <line x1="210" y1="180" x2="230" y2="180" stroke-width="2" stroke-linecap="round" />
+  <line x1="220" y1="170" x2="220" y2="190" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Shipping Box -->
+  <rect x="250" y="165" width="30" height="25" rx="2" stroke-width="2" stroke-linecap="round" />
+  <line x1="250" y1="170" x2="280" y2="170" stroke-width="2" stroke-linecap="round" />
+  <path d="M265 165 L265 155 L275 155 L275 165" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Rupee Symbol -->
+  <circle cx="80" cy="70" r="20" stroke-width="3" stroke-linecap="round" />
+  <path d="M80 60 L80 80" stroke-width="3" stroke-linecap="round" />
+  <path d="M75 65 L85 65" stroke-width="3" stroke-linecap="round" />
+  <path d="M75 70 L85 70" stroke-width="3" stroke-linecap="round" />
+  <path d="M85 80 L75 70" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Document -->
+  <rect x="300" y="70" width="40" height="30" rx="3" stroke-width="3" stroke-linecap="round" />
+  <line x1="305" y1="80" x2="335" y2="80" stroke-width="3" stroke-linecap="round" />
+  <line x1="305" y1="85" x2="335" y2="85" stroke-width="3" stroke-linecap="round" />
+  <line x1="305" y1="90" x2="325" y2="90" stroke-width="3" stroke-linecap="round" />
+</svg> 
