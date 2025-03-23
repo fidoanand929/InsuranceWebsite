@@ -17,9 +17,9 @@ export default function Navigation() {
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'Car Insurance', href: '/car-insurance' },
-    { name: 'Truck Insurance', href: '/truck-insurance' },
-    { name: 'Health Insurance', href: '/health-insurance' },
+    { name: 'Products', href: '/products' },
+    { name: 'Insurance', href: '/insurance' },
+    { name: 'EMI Calculator', href: '/emi-calculator' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -30,7 +30,7 @@ export default function Navigation() {
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="text-xl font-bold text-gray-800 dark:text-white">
-                InsureCo
+                FinanceHub
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

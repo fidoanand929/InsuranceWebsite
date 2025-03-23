@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path, circle, rect, line, polygon {
+      stroke: #374151;
+    }
+    @media (prefers-color-scheme: dark) {
+      path, circle, rect, line, polygon {
+        stroke: #e5e7eb;
+      }
+    }
+  </style>
+  
+  <!-- Calculator Body -->
+  <rect x="100" y="60" width="200" height="180" rx="10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Calculator Screen -->
+  <rect x="120" y="80" width="160" height="40" rx="5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="270" y="108" font-family="monospace" font-size="18" font-weight="bold" text-anchor="end" fill="currentColor">
+    1,24,635
+  </text>
+  
+  <!-- Calculator Buttons -->
+  <!-- Row 1 -->
+  <rect x="120" y="130" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="135" y="145" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    7
+  </text>
+  
+  <rect x="160" y="130" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="175" y="145" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    8
+  </text>
+  
+  <rect x="200" y="130" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="215" y="145" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    9
+  </text>
+  
+  <rect x="240" y="130" width="40" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="260" y="145" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    DEL
+  </text>
+  
+  <!-- Row 2 -->
+  <rect x="120" y="160" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="135" y="175" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    4
+  </text>
+  
+  <rect x="160" y="160" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="175" y="175" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    5
+  </text>
+  
+  <rect x="200" y="160" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="215" y="175" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    6
+  </text>
+  
+  <rect x="240" y="160" width="40" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="260" y="175" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    +
+  </text>
+  
+  <!-- Row 3 -->
+  <rect x="120" y="190" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="135" y="205" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    1
+  </text>
+  
+  <rect x="160" y="190" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="175" y="205" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    2
+  </text>
+  
+  <rect x="200" y="190" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="215" y="205" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    3
+  </text>
+  
+  <rect x="240" y="190" width="40" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="260" y="205" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    -
+  </text>
+  
+  <!-- Row 4 -->
+  <rect x="120" y="220" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="135" y="235" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    0
+  </text>
+  
+  <rect x="160" y="220" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="175" y="235" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    .
+  </text>
+  
+  <rect x="200" y="220" width="30" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="215" y="235" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    %
+  </text>
+  
+  <rect x="240" y="220" width="40" height="20" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="260" y="235" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor">
+    =
+  </text>
+  
+  <!-- Solar Panel -->
+  <rect x="120" y="60" width="60" height="15" rx="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="130" y1="60" x2="130" y2="75" stroke-width="1" stroke-linecap="round" />
+  <line x1="140" y1="60" x2="140" y2="75" stroke-width="1" stroke-linecap="round" />
+  <line x1="150" y1="60" x2="150" y2="75" stroke-width="1" stroke-linecap="round" />
+  <line x1="160" y1="60" x2="160" y2="75" stroke-width="1" stroke-linecap="round" />
+  <line x1="170" y1="60" x2="170" y2="75" stroke-width="1" stroke-linecap="round" />
+  
+  <!-- EMI Formula -->
+  <text x="290" y="40" font-family="monospace" font-size="12" font-weight="bold" text-anchor="end" fill="currentColor">
+    P×r×(1+r)^n/[(1+r)^n-1]
+  </text>
+  
+  <!-- Rupee Symbol -->
+  <circle cx="80" cy="80" r="20" stroke-width="3" stroke-linecap="round" />
+  <path d="M80 68 L80 92" stroke-width="3" stroke-linecap="round" />
+  <path d="M72 74 L88 74" stroke-width="3" stroke-linecap="round" />
+  <path d="M72 80 L88 80" stroke-width="3" stroke-linecap="round" />
+  <path d="M88 92 L72 80" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Bank Building -->
+  <rect x="300" y="80" width="40" height="40" rx="3" stroke-width="3" stroke-linecap="round" />
+  <polygon points="290,80 320,50 350,80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="310" y1="120" x2="310" y2="100" stroke-width="3" stroke-linecap="round" />
+  <line x1="320" y1="120" x2="320" y2="100" stroke-width="3" stroke-linecap="round" />
+  <line x1="330" y1="120" x2="330" y2="100" stroke-width="3" stroke-linecap="round" />
+</svg> 

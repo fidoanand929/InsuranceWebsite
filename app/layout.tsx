@@ -10,8 +10,8 @@ import type { Metadata } from "next";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Insurance Solutions',
-  description: 'Your trusted insurance partner',
+  title: 'FinanceHub',
+  description: 'Your one-stop solution for financing and insurance needs',
 };
 
 export default function RootLayout({

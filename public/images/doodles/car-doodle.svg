@@ -1,23 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" class="dark:text-white text-gray-900">
-    <title>Car Doodle</title>
-    <style>
-        g { stroke: currentColor; }
-        @media (prefers-color-scheme: dark) {
-            g { stroke: white; }
-        }
-    </style>
-    <g stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round">
-        <!-- Car Body -->
-        <path d="M200,300 C200,280 220,260 260,260 L540,260 C580,260 600,280 600,300 L600,360 C600,380 580,400 540,400 L260,400 C220,400 200,380 200,360 Z" />
-        <!-- Windows -->
-        <path d="M300,260 L340,200 L460,200 L500,260" />
-        <!-- Wheels -->
-        <circle cx="280" cy="400" r="40" />
-        <circle cx="520" cy="400" r="40" />
-        <!-- Details -->
-        <path d="M380,320 L420,320" /> <!-- Door handle -->
-        <path d="M200,340 L180,340" /> <!-- Side mirror -->
-        <path d="M600,340 L620,340" /> <!-- Side mirror -->
-    </g>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path, circle, rect, line, polygon {
+      stroke: #374151;
+    }
+    @media (prefers-color-scheme: dark) {
+      path, circle, rect, line, polygon {
+        stroke: #e5e7eb;
+      }
+    }
+  </style>
+  
+  <!-- Car Body -->
+  <path d="M80 180 L120 140 L280 140 L320 180 L320 220 L80 220 L80 180 Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Windows -->
+  <path d="M130 140 L150 100 L250 100 L270 140" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="200" y1="100" x2="200" y2="140" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Wheels -->
+  <circle cx="120" cy="220" r="30" stroke-width="3" stroke-linecap="round" />
+  <circle cx="120" cy="220" r="15" stroke-width="3" stroke-linecap="round" />
+  <circle cx="280" cy="220" r="30" stroke-width="3" stroke-linecap="round" />
+  <circle cx="280" cy="220" r="15" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Door -->
+  <line x1="200" y1="140" x2="200" y2="220" stroke-width="3" stroke-linecap="round" />
+  <circle cx="190" cy="180" r="5" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Head Lights -->
+  <path d="M80 180 L60 180 L60 200 L80 200" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M320 180 L340 180 L340 200 L320 200" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- License Plate -->
+  <rect x="150" y="200" width="100" height="20" rx="2" stroke-width="3" stroke-linecap="round" />
+  <text x="200" y="215" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="currentColor">
+    FIN-123
+  </text>
+  
+  <!-- Speed Lines -->
+  <path d="M30 190 L50 190" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 5" />
+  <path d="M20 200 L45 200" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 5" />
+  <path d="M25 210 L40 210" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 5" />
+  
+  <!-- Rupee Symbol -->
+  <circle cx="80" cy="80" r="25" stroke-width="3" stroke-linecap="round" />
+  <path d="M80 65 L80 95" stroke-width="3" stroke-linecap="round" />
+  <path d="M70 70 L90 70" stroke-width="3" stroke-linecap="round" />
+  <path d="M70 80 L90 80" stroke-width="3" stroke-linecap="round" />
+  <path d="M90 95 L70 80" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Document/Loan Papers -->
+  <rect x="300" y="80" width="40" height="30" rx="3" stroke-width="3" stroke-linecap="round" />
+  <line x1="305" y1="90" x2="335" y2="90" stroke-width="3" stroke-linecap="round" />
+  <line x1="305" y1="95" x2="335" y2="95" stroke-width="3" stroke-linecap="round" />
+  <line x1="305" y1="100" x2="325" y2="100" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Clouds/Smoke -->
+  <path d="M220 70 Q230 60, 240 70 Q250 80, 240 90 Q230 100, 220 90 Q210 80, 220 70 Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M250 50 Q255 45, 260 50 Q265 55, 260 60 Q255 65, 250 60 Q245 55, 250 50 Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 </svg> 
