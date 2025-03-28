@@ -4,30 +4,26 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { ChartBarIcon, ArrowTrendingUpIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline';
 import '@fontsource/poppins';
 import '@fontsource/inter';
 
 export default function FuelFinance() {
   const features = [
     {
-      title: 'Fuel Credit Cards',
-      description: 'Specialized credit solutions for managing and tracking fuel expenses across your fleet.',
-      icon: '💳'
+      title: 'Flexible Payment Options',
+      description: 'Choose from various payment plans that suit your business needs',
+      icon: CurrencyDollarIcon
     },
     {
-      title: 'Expense Management',
-      description: 'Advanced tools to monitor, analyze, and optimize your fuel consumption and expenses.',
-      icon: '📊'
+      title: 'Real-time Tracking',
+      description: 'Monitor your fuel expenses and consumption patterns',
+      icon: ChartBarIcon
     },
     {
-      title: 'Volume Discounts',
-      description: 'Tiered pricing structure offering greater savings as your fuel consumption increases.',
-      icon: '🔽'
-    },
-    {
-      title: 'Nationwide Network',
-      description: 'Access to a vast network of fuel stations for convenient refueling across the country.',
-      icon: '🗺️'
+      title: 'Growth Analysis',
+      description: 'Understand your fuel usage trends and optimize costs',
+      icon: ArrowTrendingUpIcon
     }
   ];
 
@@ -81,13 +77,15 @@ export default function FuelFinance() {
                 >
                   Apply Now
                 </motion.button>
-                <motion.button
-                  className="px-6 py-3 rounded-xl bg-white dark:bg-gray-800 text-amber-600 dark:text-amber-400 font-semibold shadow-lg hover:shadow-xl border border-amber-200 dark:border-gray-700 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Estimate Savings
-                </motion.button>
+                <Link href="/fuel-finance/estimate-savings">
+                  <motion.button
+                    className="px-6 py-3 rounded-xl bg-white dark:bg-gray-800 text-amber-600 dark:text-amber-400 font-semibold shadow-lg hover:shadow-xl border border-amber-200 dark:border-gray-700 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Estimate Savings
+                  </motion.button>
+                </Link>
               </div>
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0">
@@ -127,7 +125,7 @@ export default function FuelFinance() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -137,7 +135,9 @@ export default function FuelFinance() {
                 viewport={{ once: true }}
                 className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
               >
-                <div className="text-4xl mb-4">{feature.icon}</div>
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mb-4">
+                  <feature.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                </div>
                 <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{feature.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
               </motion.div>
