@@ -1,178 +1,153 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useValidatedForm } from '@/lib/hooks/useValidatedForm';
+import { contactFormSchema, type ContactFormData } from '@/lib/validations/schemas';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import '@fontsource/poppins';
-import '@fontsource/inter';
 
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Loader2 } from "lucide-react";
+export default function ContactPage() {
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  
+  const { handleSubmit, validateField, errors, isSubmitting } = useValidatedForm<ContactFormData>({
+    schema: contactFormSchema,
+    onSubmit: async (data) => {
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
 
-// Form validation schema
-const schema = yup.object({
-  name: yup.string().required('Name is required'),
-  contact: yup.string()
-    .required('Contact information is required')
-    .matches(
-      /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|([0-9]{10})+$/,
-      'Please enter a valid email or phone number'
-    ),
-  message: yup.string().required('Message is required').min(10, 'Message must be at least 10 characters'),
-}).required();
+        if (!response.ok) {
+          throw new Error('Failed to submit form');
+        }
 
-type FormData = yup.InferType<typeof schema>;
-
-export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const form = useForm<FormData>({
-    resolver: yupResolver(schema)
+        setSubmitStatus('success');
+      } catch (error) {
+        setSubmitStatus('error');
+        throw error; // This will be caught by the form's error handler
+      }
+    },
+    onError: () => {
+      setSubmitStatus('error');
+    },
   });
 
-  const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true);
-    try {
-      const GOOGLE_FORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdk7sI9CXNV9Yj3cF9GYmFnZpgWeuirdgpln2OjWxgQaTj2VQ/formResponse';
-      
-      const formData = new FormData();
-      formData.append('entry.569208055', data.name);
-      formData.append('entry.1002466869', data.contact);
-      formData.append('entry.365568036', data.message);
-
-      const response = await fetch(GOOGLE_FORM_URL, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-      });
-
-      setIsSubmitted(true);
-      form.reset();
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 font-['Inter'] bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-md w-full space-y-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <h1 className="text-4xl font-bold font-['Poppins'] text-gray-900 dark:text-white drop-shadow-sm">
-            Get in Touch
-          </h1>
-          <p className="mt-2 text-gray-600 dark:text-gray-300">
-            We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-3xl mx-auto"
+      >
+        <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
+        
+        <form onSubmit={handleSubmit} className="space-y-6 bg-gray-800 p-8 rounded-lg shadow-xl">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              onChange={(e) => validateField('name', e.target.value)}
+              className="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              required
+            />
+            {errors.name && (
+              <p className="mt-1 text-sm text-red-400">{errors.name[0]}</p>
+            )}
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="mt-8 bg-white dark:bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700"
-        >
-          {isSubmitted ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-8"
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={(e) => validateField('email', e.target.value)}
+              className="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              required
+            />
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-400">{errors.email[0]}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium mb-2">
+              Phone
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              onChange={(e) => validateField('phone', e.target.value)}
+              className="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              required
+            />
+            {errors.phone && (
+              <p className="mt-1 text-sm text-red-400">{errors.phone[0]}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium mb-2">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              onChange={(e) => validateField('message', e.target.value)}
+              className="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              required
+            />
+            {errors.message && (
+              <p className="mt-1 text-sm text-red-400">{errors.message[0]}</p>
+            )}
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={`w-full py-3 px-4 rounded-md text-white font-medium transition-colors
+                ${isSubmitting 
+                  ? 'bg-blue-400 cursor-not-allowed'
+                  : 'bg-blue-600 hover:bg-blue-700'
+                }`}
             >
-              <div className="text-green-500 text-5xl mb-4">✓</div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
-                Thank You!
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Your message has been sent successfully. We'll get back to you soon.
-              </p>
-              <Button
-                variant="link"
-                onClick={() => setIsSubmitted(false)}
-                className="mt-6 text-blue-600 dark:text-blue-400 hover:text-blue-500"
-              >
-                Send another message
-              </Button>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </div>
+
+          {submitStatus === 'success' && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="p-4 bg-green-600 text-white rounded-md"
+            >
+              Thank you for your message! We'll get back to you soon.
             </motion.div>
-          ) : (
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Your name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="contact"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Contact (Email or Phone)</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Your email or phone number" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Message</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Your message" 
-                          className="min-h-[120px]" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    'Send Message'
-                  )}
-                </Button>
-              </form>
-            </Form>
           )}
-        </motion.div>
-      </div>
+
+          {submitStatus === 'error' && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="p-4 bg-red-600 text-white rounded-md"
+            >
+              There was an error sending your message. Please try again.
+            </motion.div>
+          )}
+        </form>
+      </motion.div>
     </div>
   );
 } 
