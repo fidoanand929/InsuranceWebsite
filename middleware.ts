@@ -65,7 +65,6 @@ export async function middleware(req: NextRequest) {
 
   // Check if this is a mutation request
   if (req.method === 'GET' || req.method === 'HEAD') {
-    await applySecurityHeaders(res);
     return res;
   }
 
@@ -76,50 +75,7 @@ export async function middleware(req: NextRequest) {
     return new NextResponse('Invalid CSRF token', { status: 403 });
   }
 
-  // Apply security headers
-  await applySecurityHeaders(res);
-
   return res;
-}
-
-async function applySecurityHeaders(response: NextResponse) {
-  // Define CSP Header (maintaining Clerk compatibility)
-  const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.clerk.accounts.dev https://clerk.clerk.dev https://*.clerk.dev;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.clerk.dev;
-    img-src 'self' data: https: blob: https://*.clerk.dev;
-    font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self' https://*.clerk.dev https://clerk.clerk.dev wss://*.clerk.dev https://*.clerk.accounts.dev;
-    frame-src 'self' https://*.clerk.dev;
-    frame-ancestors 'none';
-    form-action 'self';
-    base-uri 'self';
-    object-src 'none';
-    upgrade-insecure-requests;
-  `.replace(/\s{2,}/g, ' ').trim();
-
-  const headers = response.headers;
-  
-  // Content Security Policy
-  headers.set('Content-Security-Policy', cspHeader);
-  
-  // Enhanced Security Headers
-  headers.set('X-Frame-Options', 'DENY');
-  headers.set('X-Content-Type-Options', 'nosniff');
-  headers.set('X-XSS-Protection', '1; mode=block');
-  headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  headers.set('Permissions-Policy', 
-    'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()');
-  
-  // HSTS (Strict-Transport-Security)
-  headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
-  
-  // Cache Control
-  headers.set('Cache-Control', 'no-store, max-age=0');
-  
-  // Clear potentially sensitive data
-  headers.set('X-Powered-By', '');
 }
 
 export const config = {

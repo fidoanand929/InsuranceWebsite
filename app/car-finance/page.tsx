@@ -74,20 +74,24 @@ export default function CarFinance() {
                 Drive your dream car today with our flexible financing options designed to fit your budget and lifestyle.
               </p>
               <div className="flex flex-wrap gap-4">
-                <motion.button
-                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Apply Now
-                </motion.button>
-                <motion.button
-                  className="px-6 py-3 rounded-xl bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 font-semibold shadow-lg hover:shadow-xl border border-blue-200 dark:border-gray-700 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Calculate EMI
-                </motion.button>
+                <Link href="/car-finance/quote">
+                  <motion.button
+                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Apply Now
+                  </motion.button>
+                </Link>
+                <Link href="/emi-calculator">
+                  <motion.button
+                    className="px-6 py-3 rounded-xl bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 font-semibold shadow-lg hover:shadow-xl border border-blue-200 dark:border-gray-700 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Calculate EMI
+                  </motion.button>
+                </Link>
               </div>
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0">

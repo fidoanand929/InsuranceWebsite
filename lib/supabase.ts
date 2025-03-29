@@ -1,9 +1,26 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables. Please check your .env.local file.');
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+  },
+  global: {
+    headers: {
+      'X-Client-Info': 'supabase-js',
+    },
+  },
+  db: {
+    schema: 'public',
+  },
+});
 
 // Fixed admin credentials
 const ADMIN_USERNAME = 'administrator';
@@ -96,4 +113,25 @@ export async function checkUserRole(userId: string): Promise<string | null> {
 export async function isAdmin(userId: string): Promise<boolean> {
   const role = await checkUserRole(userId);
   return role === 'admin' || role === 'super_admin';
+}
+
+// Types for the quotes table
+export interface TruckQuote {
+  id: string;
+  created_at: string;
+  customer_name: string;
+  business_name: string;
+  contact_number: string;
+  email: string;
+  vehicle_type: string;
+  vehicle_cost: number;
+  down_payment: number;
+  loan_term: number;
+  monthly_revenue: number;
+  business_age: number;
+  credit_score: number;
+  quote_amount: number;
+  interest_rate: number;
+  monthly_payment: number;
+  status: 'pending' | 'approved' | 'rejected';
 } 
